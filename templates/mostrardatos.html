@@ -1,0 +1,34 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>{{ datos }}</h3>
+
+<ul>
+    {% for k,v in datos.items() %}
+    <li>{{k}} {{v}}</li>
+    <p> {{ v.name }} {{v.age}} {{v.isEmployed}} </p>
+    {% endfor %}
+</ul>
+<table class="table table-success table-bordered table-striped table-hover">
+    {% set primero=datos['1'] %}
+    <thead class="thead-light">
+        <tr>
+            {% for k,v in primero.items() %}
+            <th> {{ k }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    {% for k,v in datos.items() %}
+    <tr>
+        {% for d in v.values() %}
+        <td> {{ d }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{url_for('static',filename='desactivar.js')}}" type="module"></script>
+{% endblock %}

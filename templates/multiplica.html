@@ -1,0 +1,16 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Tabla de multiplicar del número: {{ numero }}</h3>
+<ul id="navigation">
+    {% for i in range(11)%}
+    <li>{{ i }} * {{ numero }} = {{ i * numero }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+{% block scripts %}
+<script src="{{url_for('static',filename='desactivar.js')}}" type="module"></script>
+{% endblock %}

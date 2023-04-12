@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Flask</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <h1>{{message}}</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Index</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link my-auto" href="/multiplica">Ir a multiplicar</a>
+                        <a class="nav-link my-auto" href="/mostrardatos/empleados">Ir a mostrar datos Empleados</a>
+                        <a class="nav-link my-auto" href="/mostrardatos/alumnos">Ir a mostrar datos Alumnos</a>
+                        <a class="nav-link my-auto" href="/" tabindex="-1" id="ver">Ver datos empleados en index</a>
+                        <form class="d-flex nav-link my-auto" action="/saludar">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                name="nombre">
+                            <button class="btn btn-dark btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container flex-shrink-0">
+        <hr>
+        <!-- "content" block that pages are expected to override -->
+        {% block content %}{% endblock %}
+        <hr>
+
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <p>&copy; {{ year }} - My Flask Application</p>
+    </footer>
+    <script src="{{url_for('static',filename='scripts.js')}}" type="module"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

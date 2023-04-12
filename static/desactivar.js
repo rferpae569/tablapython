@@ -1,0 +1,1 @@
+document.querySelector('#ver').classList.add("disabled");
